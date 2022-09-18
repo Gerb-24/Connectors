@@ -1,13 +1,14 @@
 from src.PyVMF import *
 from main import *
+import os
 
 prototypeVMF = load_vmf('vmfs/prototype.vmf')
-testVMF = load_vmf('vmfs/test2.vmf')
+fileName = 'vmfs/test2.vmf'
+search_tex = 'tools/toolsskip'
 wall_tex = 'dev/dev_blendmeasure2'
 ceiling_tex = 'dev/reflectivity_70'
 corner_tex = 'dev/reflectivity_10'
 floor_tex = 'orange_dev/dev_measurewall_green03'
-
 nodraw = 'tools/toolsnodraw'
 sideTextures = [f"dev/reflectivity_{10*(i+1)}" for i in range(6)]
 
@@ -248,6 +249,8 @@ def solidToCeiling( solid: Solid, tot_z_max ):
     for side in solid.get_sides():
         if side.material == sideDict['-z'].upper():
             side.material = ceiling_tex.upper()
+        elif side.material == sideDict['z'].upper():
+            side.material = nodraw.upper()
         else:
             # side.material = nodraw.upper()
             side.material = wall_tex.upper()
@@ -297,6 +300,8 @@ def solidToFloor( solid: Solid, tot_z_min ):
     for side in solid.get_sides():
         if side.material == sideDict['z'].upper():
             side.material = floor_tex.upper()
+        elif side.material == sideDict['-z'].upper():
+            side.material = nodraw.upper()
         else:
             # side.material = nodraw.upper()
             side.material = wall_tex.upper()
@@ -325,143 +330,160 @@ def getEdgeDataOfSolid( solid: Solid ):
     solid_data = [ solid_ed_dict[key] for key in solid_ed_dict ]
     return solid_data
 
+def compile( fileName, search_tex, wall_tex, floor_tex, ceiling_tex, corner_tex ):
+    dummyVMF = new_vmf()
+    testVMF = load_vmf(fileName)
+    solids = [solid for solid in testVMF.get_solids() if solid.has_texture(search_tex)]
+    edgeDataList = []
 
-dummyVMF = new_vmf()
-solids = testVMF.get_solids()
-edgeDataList = []
-
-tot_z_min, tot_z_max = None, None
-for solid in solids:
-    _, _, _, _, zMin, zMax = getDimensionsOfSolid( solid )
-    if tot_z_min != None:
-        tot_z_min = min( zMin, tot_z_min )
-    else:
-        tot_z_min = zMin
-    if tot_z_max != None:
-        tot_z_max = max( zMax, tot_z_max )
-    else:
-        tot_z_max = zMax
-
-
-for solid in solids:
-    dummyVMF = addVMF(dummyVMF, solidToCeiling( solid, tot_z_max ) )
-    dummyVMF = addVMF(dummyVMF, solidToFloor( solid, tot_z_min ) )
-    edgeDataList.extend(getEdgeDataOfSolid(solid))
-ed_x_dict = {}
-ed_y_dict = {}
-for ed in edgeDataList:
-    if ed.normal == 'x' or ed.normal == '-x':
-        if ed.pos not in ed_x_dict:
-            ed_x_dict[ ed.pos ] = [ ed ]
+    tot_z_min, tot_z_max = None, None
+    for solid in solids:
+        _, _, _, _, zMin, zMax = getDimensionsOfSolid( solid )
+        if tot_z_min != None:
+            tot_z_min = min( zMin, tot_z_min )
         else:
-            ed_x_dict[ ed.pos ].append( ed )
-    else:
-        if ed.pos not in ed_y_dict:
-            ed_y_dict[ ed.pos ] = [ ed ]
+            tot_z_min = zMin
+        if tot_z_max != None:
+            tot_z_max = max( zMax, tot_z_max )
         else:
-            ed_y_dict[ ed.pos ].append( ed )
+            tot_z_max = zMax
 
-def change_ed_dict( ed_dict, x_or_y ):
-    corner_points = []
-    def add_corner_point( pos, val, bot, top, n_1, n_2 ):
-        if x_or_y == 'x':
-            corner_points.append( cornerPoint( (pos, val), bot, top, n_1, n_2 ) )
+
+    for solid in solids:
+        dummyVMF = addVMF(dummyVMF, solidToCeiling( solid, tot_z_max ) )
+        dummyVMF = addVMF(dummyVMF, solidToFloor( solid, tot_z_min ) )
+        edgeDataList.extend(getEdgeDataOfSolid(solid))
+    ed_x_dict = {}
+    ed_y_dict = {}
+    for ed in edgeDataList:
+        if ed.normal == 'x' or ed.normal == '-x':
+            if ed.pos not in ed_x_dict:
+                ed_x_dict[ ed.pos ] = [ ed ]
+            else:
+                ed_x_dict[ ed.pos ].append( ed )
         else:
-            corner_points.append( cornerPoint( (val, pos), bot, top, n_1, n_2 ) )
+            if ed.pos not in ed_y_dict:
+                ed_y_dict[ ed.pos ] = [ ed ]
+            else:
+                ed_y_dict[ ed.pos ].append( ed )
+
+    def change_ed_dict( ed_dict, x_or_y ):
+        corner_points = []
+        def add_corner_point( pos, val, bot, top, n_1, n_2 ):
+            if x_or_y == 'x':
+                corner_points.append( cornerPoint( (pos, val), bot, top, n_1, n_2 ) )
+            else:
+                corner_points.append( cornerPoint( (val, pos), bot, top, n_1, n_2 ) )
 
 
-    for key in ed_dict:
-        if len( ed_dict[key] ) > 1:
+        for key in ed_dict:
+            if len( ed_dict[key] ) > 1:
 
-            intervals = ed_dict[key]
-            intervals.sort( key= lambda ed: ed.interval[0] )
-            new_intervals = []
-            i = 0
-            while i < len( intervals ) - 1:
-                cur, next = intervals[i].interval, intervals[i + 1].interval # the current interval and the interval next in line
-                cur_n, next_n = intervals[i].normal, intervals[i+1].normal
-                cur_h, next_h = intervals[i].height_interval, intervals[i+1].height_interval
-                bot, top = min( cur_h[0], next_h[0] ), max( cur_h[1], next_h[1] )
-                end_condition = True
+                intervals = ed_dict[key]
+                intervals.sort( key= lambda ed: ed.interval[0] )
+                new_intervals = []
+                i = 0
+                while i < len( intervals ) - 1:
+                    cur, next = intervals[i].interval, intervals[i + 1].interval # the current interval and the interval next in line
+                    cur_n, next_n = intervals[i].normal, intervals[i+1].normal
+                    cur_h, next_h = intervals[i].height_interval, intervals[i+1].height_interval
+                    bot, top = min( cur_h[0], next_h[0] ), max( cur_h[1], next_h[1] )
+                    end_condition = True
 
-                if cur[1] < next[1]:
-                    if cur[1] < next[0]:        # Disjoint
-                        new_intervals.append( intervals[i] )
+                    if cur[1] < next[1]:
+                        if cur[1] < next[0]:        # Disjoint
+                            new_intervals.append( intervals[i] )
 
-                    elif cur[1] == next[0]:     # Touching
-                        new_intervals.append( intervals[i] )
+                        elif cur[1] == next[0]:     # Touching
+                            new_intervals.append( intervals[i] )
 
-                    elif cur[0] < next[0]:      # Partial Overlap
-                        new_intervals.append( intervals[i].change_interval( cur[0], next[0]))
-                        intervals[i+1] = intervals[i+1].change_interval( cur[1], next[1])
-                        if cur_n in { 'y', '-x' }:
-                            n_1, n_2 = cur_n, leftDict[cur_n]
-                            n_3, n_4 = next_n, leftDict[next_n]
-                        else:
-                            n_1, n_2 = cur_n, rightDict[cur_n]
-                            n_3, n_4 = next_n, rightDict[next_n]
-                        add_corner_point( key, next[0], bot, top, n_1, n_2 )
-                        add_corner_point( key, cur[1], bot, top, n_3, n_4 )
+                        elif cur[0] < next[0]:      # Partial Overlap
+                            new_intervals.append( intervals[i].change_interval( cur[0], next[0]))
+                            intervals[i+1] = intervals[i+1].change_interval( cur[1], next[1])
+                            if cur_n in { 'y', '-x' }:
+                                n_1, n_2 = cur_n, leftDict[cur_n]
+                                n_3, n_4 = next_n, leftDict[next_n]
+                            else:
+                                n_1, n_2 = cur_n, rightDict[cur_n]
+                                n_3, n_4 = next_n, rightDict[next_n]
+                            add_corner_point( key, next[0], bot, top, n_1, n_2 )
+                            add_corner_point( key, cur[1], bot, top, n_3, n_4 )
 
-                    elif cur[0] == next[0]:     # Start overlap on cur
-                        intervals[i+1] = intervals[i+1].change_interval( cur[1], next[1])
-                        if cur_n in { 'y', '-x' }:
-                            n_1, n_2 = next_n, leftDict[next_n]
-                        else:
-                            n_1, n_2 = next_n, rightDict[next_n]
-                        add_corner_point( key, cur[1], bot, top, n_1, n_2 )
+                        elif cur[0] == next[0]:     # Start overlap on cur
+                            intervals[i+1] = intervals[i+1].change_interval( cur[1], next[1])
+                            if cur_n in { 'y', '-x' }:
+                                n_1, n_2 = next_n, leftDict[next_n]
+                            else:
+                                n_1, n_2 = next_n, rightDict[next_n]
+                            add_corner_point( key, cur[1], bot, top, n_1, n_2 )
 
 
-                elif cur[1] == next[1]:
-                    if cur[0] < next[0]:        # Total overlap on next
-                        new_intervals.append( intervals[i].change_interval( cur[0], next[0] ))
-                        if cur_n in { 'y', '-x' }:
-                            n_1, n_2 = cur_n, leftDict[cur_n]
-                        else:
-                            n_1, n_2 = cur_n, rightDict[cur_n]
-                        add_corner_point( key, next[0], bot, top, n_1, n_2 )
-                        i += 1
+                    elif cur[1] == next[1]:
+                        if cur[0] < next[0]:        # Total overlap on next
+                            new_intervals.append( intervals[i].change_interval( cur[0], next[0] ))
+                            if cur_n in { 'y', '-x' }:
+                                n_1, n_2 = cur_n, leftDict[cur_n]
+                            else:
+                                n_1, n_2 = cur_n, rightDict[cur_n]
+                            add_corner_point( key, next[0], bot, top, n_1, n_2 )
+                            i += 1
 
-                    elif cur[0] == next[0]:     # Total overlap on both
-                        i += 2
-                        continue
+                        elif cur[0] == next[0]:     # Total overlap on both
+                            i += 2
+                            continue
 
-                elif cur[1] > next[1]:
-                    if cur[0] < next[0]:        # Mid overlap
-                        new_intervals.append( intervals[i].change_interval( cur[0], next[0]))
-                        intervals[i+1] = intervals[i].change_interval(next[1], cur[1])
+                    elif cur[1] > next[1]:
+                        if cur[0] < next[0]:        # Mid overlap
+                            new_intervals.append( intervals[i].change_interval( cur[0], next[0]))
+                            intervals[i+1] = intervals[i].change_interval(next[1], cur[1])
+                            if cur_n in { 'y', '-x' }:
+                                n_1, n_2 = cur_n, leftDict[cur_n]
+                                n_3, n_4 = cur_n, rightDict[cur_n]
+                            else:
+                                n_1, n_2 = cur_n, rightDict[cur_n]
+                                n_3, n_4 = cur_n, leftDict[cur_n]
+                            add_corner_point( key, next[0], bot, top, n_1, n_2 )
+                            add_corner_point( key, next[1], bot, top, n_3, n_4 )
 
-                    elif cur[0] == next[0]:     # Start overlap
-                        intervals[i+1] = intervals[i].change_interval( next[1], cur[1] )
-                        add_corner_point( key, next[1], bot, top )
+                        elif cur[0] == next[0]:     # Start overlap
+                            intervals[i+1] = intervals[i].change_interval( next[1], cur[1] )
+                            if cur_n in { 'y', '-x' }:
+                                n_1, n_2 = cur_n, rightDict[cur_n]
+                            else:
+                                n_1, n_2 = cur_n, leftDict[cur_n]
+                            add_corner_point( key, next[1], bot, top, n_1, n_2 )
 
-                # here we add the last segement as there is no next
-                if end_condition and i == len( intervals ) - 2:
-                    new_intervals.append( intervals[i+1] )
-                i += 1
-            ed_dict[key] = new_intervals
-    return corner_points
+                    # here we add the last segement as there is no next
+                    if end_condition and i == len( intervals ) - 2:
+                        new_intervals.append( intervals[i+1] )
+                    i += 1
+                ed_dict[key] = new_intervals
+        return corner_points
 
-corner_points_x = change_ed_dict( ed_x_dict, 'x' )
-corner_points_y = change_ed_dict( ed_y_dict, 'y' )
+    corner_points_x = change_ed_dict( ed_x_dict, 'x' )
+    corner_points_y = change_ed_dict( ed_y_dict, 'y' )
 
-corner_points = corner_points_x.copy()
-corner_points.extend( corner_points_y )
+    corner_points = corner_points_x.copy()
+    corner_points.extend( corner_points_y )
 
-edgeDataList = []
-for key in ed_x_dict:
-    edgeDataList.extend(ed_x_dict[key])
-for key in ed_y_dict:
-    edgeDataList.extend(ed_y_dict[key])
+    edgeDataList = []
+    for key in ed_x_dict:
+        edgeDataList.extend(ed_x_dict[key])
+    for key in ed_y_dict:
+        edgeDataList.extend(ed_y_dict[key])
 
-cp_positions = { cp.pos for cp in corner_points }
-visited = set()
-for ed in edgeDataList:
-    ed.corner_points_checks( cp_positions, visited )
-    dummyVMF = addVMF(dummyVMF, ed.toWall() )
+    cp_positions = { cp.pos for cp in corner_points }
+    visited = set()
+    for ed in edgeDataList:
+        ed.corner_points_checks( cp_positions, visited )
+        dummyVMF = addVMF(dummyVMF, ed.toWall() )
 
-for cp in corner_points:
-    if cp.pos in visited:
-        dummyVMF = addVMF(dummyVMF, cp.toCorner() )
+    for cp in corner_points:
+        if cp.pos in visited:
+            dummyVMF = addVMF(dummyVMF, cp.toCorner() )
 
-dummyVMF.export(f'vmfs/walls.vmf')
+    # dummyVMF.export(f'vmfs/walls.vmf')
+    withoutExtension = os.path.splitext(fileName)[0]
+    dummyVMF.export(f"{withoutExtension}_connected.vmf")
+
+# compile( fileName, search_tex, wall_tex, floor_tex, ceiling_tex, corner_tex )

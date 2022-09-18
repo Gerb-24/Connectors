@@ -29,16 +29,6 @@ def addVMF( vmf: VMF, vmf_to_add: VMF ):
 
     return total_vmf
 
-sideTextures = [f"dev/reflectivity_{10*(i+1)}" for i in range(6)]
-sideDict = {
-    sideTextures[0]:   "x",
-    sideTextures[1]:   "y",
-    sideTextures[2]:   "z",
-    sideTextures[3]:  "-x",
-    sideTextures[4]:  "-y",
-    sideTextures[5]:  "-z",
-}
-
 def createDuplicateVMF(vmf: VMF):
     duplicateVMF = new_vmf()
     solids = vmf.get_solids()

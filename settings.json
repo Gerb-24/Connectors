@@ -1,0 +1,9 @@
+{
+  "fileName": "",
+  "dirName": "",
+  "search_tex": "tools/toolsskip",
+  "wall_tex": "dev/dev_blendmeasure2",
+  "floor_tex": "orange_dev/dev_measurewall_green03",
+  "ceiling_tex": "dev/reflectivity_70",
+  "corner_tex": "dev/reflectivity_10"
+}
