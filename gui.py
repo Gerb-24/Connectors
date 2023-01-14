@@ -44,6 +44,8 @@ class MyApp(QWidget):
             #boolean variables
             'standard_nodraw':              False,
             'jump_nodraw':                  False,
+            'standard_corner':              False,
+            'jump_corner':                  False,
         }
 
         self.le_data = {
@@ -94,6 +96,8 @@ class MyApp(QWidget):
         self.bool_cb_data = {
             'standard_nodraw':  self.standard_nodraw_cb,
             'jump_nodraw':      self.jump_nodraw_cb,
+            'standard_corner':  self.standard_corner_cb,
+            'jump_corner':      self.jump_corner_cb,
         }
        
         # connecting string logic
@@ -152,7 +156,8 @@ class MyApp(QWidget):
             ]
         file_path = self.data[ 'standard_file' ]
         nodraw = self.data[ 'standard_nodraw' ]
-        compile_multiple( 'standard', '', [ file_path ], textures, nodraw )
+        corner = self.data[ 'standard_corner' ]
+        compile_multiple( 'standard', '', [ file_path ], textures, nodraw, corner )
 
     def jump_compile( self ):
         textures = [ 
@@ -165,12 +170,13 @@ class MyApp(QWidget):
             ]
         dir_path = self.data[ 'jump_dir' ]
         nodraw = self.data[ 'jump_nodraw' ]
+        corner = self.data[ 'jump_corner' ]
         files = [os.path.join( dir_path, f ) for f in os.listdir( dir_path ) if os.path.isfile(os.path.join( dir_path , f)) ]
         root = os.path.abspath(os.path.join( dir_path, os.pardir))
         
         # we dont want to include the .vmx files
         files = [ f for f in files if os.path.splitext(f)[1] == '.vmf' ]
-        compile_multiple( 'jump', root, files, textures, nodraw )
+        compile_multiple( 'jump', root, files, textures, nodraw, corner )
 
     # utility functions
 

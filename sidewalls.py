@@ -574,7 +574,7 @@ def createEnd( solid: Solid, filename, textures: Textures ):
 
     return tot_proto
 
-def compile( type, filename, next_filename, textures: Textures, nodraw, spawn=False ):
+def compile( type, filename, next_filename, textures: Textures, nodraw, corner, spawn=False ):
     dummyVMF = new_vmf()
     testVMF = load_vmf(filename)
     solids = [solid for solid in testVMF.get_solids() if solid.has_texture(textures.search)]
@@ -748,7 +748,8 @@ def compile( type, filename, next_filename, textures: Textures, nodraw, spawn=Fa
     cp_positions = { cp.pos for cp in corner_points }
     visited = set()
     for ed in edgeDataList:
-        ed.corner_points_checks( cp_positions, visited )
+        if corner:
+            ed.corner_points_checks( cp_positions, visited )
         dummyVMF = addVMF(dummyVMF, ed.toWall( textures ) )
 
     # add corners at each of the corner points
@@ -766,11 +767,11 @@ def compile( type, filename, next_filename, textures: Textures, nodraw, spawn=Fa
     if type == 'jump':
         return testVMF, dim_tuple
 
-def compile_multiple( type, root, files, texture_list, nodraw ):
+def compile_multiple( type, root, files, texture_list, nodraw, corner ):
     textures = Textures().load_textures( texture_list )
     if type == 'standard':
         file = files[0]
-        vmf = compile( type, file, '', textures, nodraw )
+        vmf = compile( type, file, '', textures, nodraw, corner )
         withoutExtension = os.path.splitext(file)[0]
         vmf.export( f"{withoutExtension}_connected.vmf" )
     if type == 'jump':
@@ -781,7 +782,7 @@ def compile_multiple( type, root, files, texture_list, nodraw ):
             spawn = True if ind == 0 else False
 
             next_file = files[ (ind+1)%len(files) ]
-            jump_vmf, dim_tuple = compile( type, file, next_file, textures, nodraw, spawn=spawn )
+            jump_vmf, dim_tuple = compile( type, file, next_file, textures, nodraw, corner, spawn=spawn )
             a, a_max, b, b_max, c, c_max = dim_tuple
             a_rel, b_rel, c_rel = a_max - a, b_max - b, c_max - c
 
