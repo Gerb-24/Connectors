@@ -3,8 +3,9 @@ import os
 import traceback
 from PyQt6.QtWidgets import QApplication, QWidget, QFileDialog
 from PyQt6 import uic, QtCore
-from PyQt6.QtGui import QIcon
+from PyQt6.QtGui import QIcon, QIntValidator
 from sidewalls import compile_multiple
+from random_connector import create_random_connector
 import json
 from copy import deepcopy
 
@@ -34,6 +35,15 @@ class MyApp(QWidget):
             'jump_ceiling_texture':         '',
             'jump_corner_texture':          '',
             'jump_tele_texture':            '',
+
+            # variables for random connectors
+            'random_dir':                   '',
+            'random_min_width':             0,
+            'random_max_width':             0,
+            'random_min_height':            0,
+            'random_max_height':            0,
+            'random_brush_amount':          0,
+            'random_connect':               False,
 
             # variables for third section
             'maps_dir':                     '',
@@ -68,6 +78,14 @@ class MyApp(QWidget):
             'new_map_name':                  self.new_map_name_le,
         }
 
+        self.int_data = {
+            'random_min_width':             self.random_min_width_le,
+            'random_max_width':             self.random_max_width_le,
+            'random_min_height':            self.random_min_height_le,
+            'random_max_height':            self.random_max_height_le,
+            'random_brush_amount':          self.random_brush_amount_le,
+        }
+
         self.file_le_data = {
             'standard_file':    self.standard_file_le,
             'preset_file':      self.preset_file_le,
@@ -86,11 +104,13 @@ class MyApp(QWidget):
         self.dir_le_data = {
             'jump_dir':     self.jump_dir_le,
             'maps_dir':     self.maps_dir_le,
+            'random_dir':   self.random_dir_le,
         }
 
         self.dir_btn_data = {
             'jump_dir':     self.jump_dir_btn,
             'maps_dir':     self.maps_dir_btn,
+            'random_dir':   self.random_dir_btn,
         }
 
         self.bool_cb_data = {
@@ -98,11 +118,19 @@ class MyApp(QWidget):
             'jump_nodraw':      self.jump_nodraw_cb,
             'standard_corner':  self.standard_corner_cb,
             'jump_corner':      self.jump_corner_cb,
+            'random_connect':   self.random_connect_cb,
         }
        
         # connecting string logic
         for tex in self.le_data:
             self.le_data[ tex ].textChanged.connect( lambda _, t=tex: self.assign_text_to_var( tex=t ) )
+
+        # connecting int logic
+        onlyInt = QIntValidator()
+        for tex in self.int_data:
+            onlyInt.setRange(0, 99) # this makes sure that we can only use integers
+            self.int_data[ tex ].setValidator(onlyInt)
+            self.int_data[ tex ].textChanged.connect( lambda _, t=tex: self.assign_int_to_var( tex=t ) )
 
         # connecting file logic
         for file in self.file_btn_data:
@@ -119,6 +147,7 @@ class MyApp(QWidget):
         # connecting compile buttons
         self.standard_compile_btn.clicked.connect( self.standard_compile )
         self.jump_compile_btn.clicked.connect( self.jump_compile )
+        self.random_compile_btn.clicked.connect( self.random_compile )
         self.create_new_project_btn.clicked.connect( self.create_new_project )
         self.add_new_jump_btn.clicked.connect( self.add_new_jump )
 
@@ -128,6 +157,10 @@ class MyApp(QWidget):
 
     def assign_text_to_var( self, tex='' ):
         self.data[ tex ] = self.le_data[tex].text()
+
+    def assign_int_to_var( self, tex='' ):
+        str = self.int_data[tex].text()
+        self.data[ tex ] = 0 if not str else int(str)
 
     def assign_bool_to_var( self, key='' ):
         self.data[ key ] = not self.data[ key ]
@@ -145,7 +178,7 @@ class MyApp(QWidget):
         self.dir_le_data[ dir_key ].setText( os.path.basename(dirpath) )
 
     # compile functions
-    def standard_compile( self ):
+    def standard_compile( self, file_path=None ):
         textures = [ 
             self.data[ 'standard_search_texture' ],
             self.data[ 'standard_wall_texture' ],
@@ -154,7 +187,9 @@ class MyApp(QWidget):
             self.data[ 'standard_corner_texture' ],
             '',
             ]
-        file_path = self.data[ 'standard_file' ]
+        # we override the filepath when using random connector
+        if not file_path:
+            file_path = self.data[ 'standard_file' ]
         nodraw = self.data[ 'standard_nodraw' ]
         corner = self.data[ 'standard_corner' ]
         compile_multiple( 'standard', '', [ file_path ], textures, nodraw, corner )
@@ -177,6 +212,13 @@ class MyApp(QWidget):
         # we dont want to include the .vmx files
         files = [ f for f in files if os.path.splitext(f)[1] == '.vmf' ]
         compile_multiple( 'jump', root, files, textures, nodraw, corner )
+
+    def random_compile( self ):
+        input_keys = [ 'random_dir', 'random_min_width', 'random_max_width', 'random_min_height', 'random_max_height', 'random_brush_amount' ]
+        inputs = [ self.data[ key ] for key in input_keys ]
+        file_path = create_random_connector( *inputs )
+        if self.data[ 'random_connect' ]:
+            self.standard_compile( file_path=file_path )
 
     # utility functions
 
@@ -202,7 +244,6 @@ class MyApp(QWidget):
         files = [os.path.join( dir_path, f ) for f in os.listdir( dir_path ) if os.path.isfile(os.path.join( dir_path , f)) ]
         files = [ f for f in files if os.path.splitext(f)[1] == '.vmf' ]
         new_jump_path = os.path.join( dir_path, f'jump_{ len( files ) + 1 }.vmf' )
-        print( new_jump_path )
         with open( new_jump_path, 'w' ) as f:
             f.write( data )
 
@@ -220,6 +261,8 @@ class MyApp(QWidget):
             self.data[ key ] = load_data[ key ]
         for tex in self.le_data:
             self.le_data[ tex ].setText( self.data[ tex ] )
+        for tex in self.int_data:
+            self.int_data[tex].setText( str( self.data[ tex ] ) )
         for file in self.file_le_data:
             file_path = self.data[ file ]
             self.file_le_data[ file ].setText( os.path.basename( file_path ) )

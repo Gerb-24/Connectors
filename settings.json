@@ -13,10 +13,19 @@
   "jump_ceiling_texture": "dev/reflectivity_70",
   "jump_corner_texture": "dev/reflectivity_10",
   "jump_tele_texture": "CUSTOMDEV/DEV_MEASUREWALL01RED",
+  "random_dir": "",
+  "random_min_width": 4,
+  "random_max_width": 10,
+  "random_min_height": 4,
+  "random_max_height": 10,
+  "random_brush_amount": 5,
+  "random_connect": true,
   "maps_dir": "",
   "new_map_name": "",
   "preset_file": "",
   "preset_dir": "",
   "standard_nodraw": false,
-  "jump_nodraw": true
+  "jump_nodraw": true,
+  "standard_corner": true,
+  "jump_corner": false
 }

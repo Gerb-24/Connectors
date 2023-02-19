@@ -126,7 +126,7 @@ class Triggers:
         hurt_dic = {
             'origin':       f'{ (o_xMax + o_xMin)//2 } { (o_yMax + o_yMin)//2 } {(o_zMax + o_zMin)//2}',
             'classname':    'trigger_hurt',
-            'damage':       '-9999999'
+            'damage':       '-999999'
         }
 
         hurt_ent = Entity(dic=hurt_dic)
@@ -441,9 +441,10 @@ def createSkipTeleport( solid: Solid, filename, textures: Textures ):
     }
     cata_ent = Entity(dic=cata_dic)
     cata_ent.solids.append( _solid )
-    proto.add_entities(*[tele_ent, cata_ent])
+    new_proto = new_vmf()
+    new_proto.add_entities(*[tele_ent, cata_ent])
     
-    return proto
+    return new_proto
 
 def createDestination( solid: Solid, filename, textures: Textures, spawn ):
     proto = new_vmf()
