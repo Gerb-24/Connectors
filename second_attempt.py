@@ -22,11 +22,20 @@ class AbstractBrush:
         return proto
 
 class FaceData:
-    def __init__(self, normal, pos,  dims ):
+    def __init__(self, normal, pos,  dims):
         self.normal = normal
         self.pos = int(pos)
         self.dims = dims
         self.x1_min, self.x1_max, self.x2_min, self.x2_max = self.dims
+
+        ''' data for new faces '''
+        self.parents = []
+        self.additional_colored_directions = set([])
+
+        ''' data for starting brushes '''
+        self.x1, self.x2 = None, None
+        self.children = None
+        self.next = None
 
     def __str__(self) -> str:
         s = f'''FACE(
@@ -35,14 +44,38 @@ class FaceData:
     dims = {self.dims}
 )'''
         return s
-    
-    def has_intersection( self, pre_face ):
-        x1_min, x1_max, x2_min, x2_max = pre_face
-        if x1_min >= self.x1_max or x2_min >= self.x2_max or x1_max <= self.x1_min or x2_max <= self.x2_min:
-            return 0
-        else:
-            return 1
 
+    def initial_faces( self, cube_list ):
+        self.x1, self.x2 = NORMAL_TO_AXES(self.normal)
+        self.children = {
+            DIRECTION_HANDLER(self.x1, 'o'):    [],
+            self.x1:                            [],
+            DIRECTION_HANDLER(self.x2, 'o'):    [],
+            self.x2:                            [],
+        }
+        self.next = {
+            DIRECTION_HANDLER(self.x1, 'o'):    cube_list[DIRECTION_HANDLER(self.x1, 'o')],
+            self.x1:                            cube_list[self.x1],
+            DIRECTION_HANDLER(self.x2, 'o'):    cube_list[DIRECTION_HANDLER(self.x2, 'o')],
+            self.x2:                            cube_list[self.x2],
+        }
+        
+    def has_intersection( self, fd ):
+        x1_min, x1_max, x2_min, x2_max = fd.dims
+        if x1_min >= self.x1_max or x2_min >= self.x2_max or x1_max <= self.x1_min or x2_max <= self.x2_min:
+            return
+        
+        fd.normal = self.normal
+        fd.parents.append(self)
+        if x1_min == self.x1_min:
+            self.children[DIRECTION_HANDLER(self.x1, 'o')].append( fd )
+        if x1_max == self.x1_max:
+            self.children[self.x1].append( fd )
+        if x2_min == self.x2_min:
+            self.children[DIRECTION_HANDLER(self.x2, 'o')].append( fd )
+        if x2_max == self.x2_max:
+            self.children[self.x2].append( fd )
+        
     def has_zero_volume( self ):
         return (self.x1_min >= self.x1_max or self.x2_min >= self.x2_max)
 
@@ -54,6 +87,9 @@ class FaceData:
         materials_dictionary = {
                 self.normal:                            NORMAL_TO_TEXTURE(self.normal),
             }
+        for direction in self.additional_colored_directions:
+            materials_dictionary[direction] = NORMAL_TO_TEXTURE(direction)
+
         x1, x2 = NORMAL_TO_AXES( self.normal )
         sign = DIRECTION_IS_POSITIVE( self.normal )
         move_dictionary = {
@@ -144,18 +180,22 @@ def NORMAL_TO_TEXTURE( normal ):
 
 def GET_FACE_DATA( solid ):
     xMin, xMax, yMin, yMax, zMin, zMax = getDimensionsOfSolid( solid )
-    solid_ed_dict = {
-    'x':    FaceData( 'x', xMin, ( yMin, yMax, zMin, zMax ) ),
-    '-x':   FaceData( '-x', xMax, ( yMin, yMax, zMin, zMax ) ),
-    'y':    FaceData( 'y', yMin, ( xMin, xMax, zMin, zMax ) ),
-    '-y':   FaceData( '-y', yMax, ( xMin, xMax, zMin, zMax ) ),
-    'z':    FaceData( 'z', zMin, ( xMin, xMax, yMin, yMax ) ),
-    '-z':   FaceData( '-z', zMax, ( xMin, xMax, yMin, yMax ) ),
+    solid_fd_dict = {
+    'x':    FaceData( 'x', xMin, ( yMin, yMax, zMin, zMax )),
+    '-x':   FaceData( '-x', xMax, ( yMin, yMax, zMin, zMax )),
+    'y':    FaceData( 'y', yMin, ( xMin, xMax, zMin, zMax )),
+    '-y':   FaceData( '-y', yMax, ( xMin, xMax, zMin, zMax )),
+    'z':    FaceData( 'z', zMin, ( xMin, xMax, yMin, yMax )),
+    '-z':   FaceData( '-z', zMax, ( xMin, xMax, yMin, yMax )),
     }
-    solid_data = [ solid_ed_dict[key] for key in solid_ed_dict ]
+    for normal in solid_fd_dict:
+        fd = solid_fd_dict[normal]
+        fd.initial_faces(solid_fd_dict)
+
+    solid_data = [ solid_fd_dict[key] for key in solid_fd_dict ]
     return solid_data
 
-testVMF = load_vmf('vmfs/test3.vmf')
+testVMF = load_vmf('vmfs/rg_connector.vmf')
 textures = Textures()
 solids = [solid for solid in testVMF.get_solids() if solid.has_texture('tools/toolsskip'.upper())]
 dummy_vmf = new_vmf()
@@ -179,6 +219,7 @@ for fd in face_data_list:
 
 def get_new_faces( fd_direction_dict ):
     all_new_faces = []
+    all_new_holes = []
     for pos in fd_direction_dict:
         x1_set, x2_set = set([]), set([])
         for fd in fd_direction_dict[pos]:
@@ -189,51 +230,68 @@ def get_new_faces( fd_direction_dict ):
         x1_list.sort()
         x2_list.sort()
         pre_face_matrix = []
-        intersection_matrix = []
-        normal_matrix = []
         for i in range(len(x1_list)-1):
             pre_face_matrix.append([])
-            intersection_matrix.append([])
-            normal_matrix.append([])
             for j in range(len(x2_list)-1):
-                normal_matrix[i].append('?')
-                intersection_matrix[i].append(0)
-                pre_face_matrix[i].append( [x1_list[i], x1_list[i+1], x2_list[j], x2_list[j+1]] )
+                new_pre_face = FaceData( '?', pos, [x1_list[i], x1_list[i+1], x2_list[j], x2_list[j+1]] )
+                pre_face_matrix[i].append( new_pre_face )
                 for fd in fd_direction_dict[pos]:
-                    has_intersection =  fd.has_intersection(pre_face_matrix[i][j])
-                    intersection_matrix[i][j] += has_intersection
-                    if has_intersection in {1, -1}:
-                        normal_matrix[i][j] = fd.normal
+                    fd.has_intersection( new_pre_face )
         
-
+        holes = []
         for i in range(len(x1_list)-1):
             for j in range(len(x2_list)-1):
-                if intersection_matrix[i][j] == 2:
-                    pre_face_matrix[i+1][j][0] += 128
-                    pre_face_matrix[i-1][j][1] -= 128
-                    pre_face_matrix[i][j+1][2] += 128
-                    pre_face_matrix[i][j-1][3] -= 128
-
+                pre_face = pre_face_matrix[i][j]
+                if len(pre_face.parents) == 2:
+                    holes.append( pre_face )
+                    if i < (len(x1_list) - 2):
+                        pre_face_matrix[i+1][j].x1_min += 128
+                    if i > 0:
+                        pre_face_matrix[i-1][j].x1_max -= 128
+                    if j < (len(x2_list) - 2):
+                        pre_face_matrix[i][j+1].x2_min += 128
+                    if j > 0:
+                        pre_face_matrix[i][j-1].x2_max -= 128
 
         new_faces = []
         for i in range(len(x1_list)-1):
             for j in range(len(x2_list)-1):
-                if intersection_matrix[i][j] == 1:
-                    new_faces.append( FaceData(normal_matrix[i][j], pos, pre_face_matrix[i][j]) )
+                pre_face = pre_face_matrix[i][j]
+                if len(pre_face.parents) == 1:
+                    new_faces.append( pre_face )
 
         all_new_faces.extend( new_faces )
-    return all_new_faces
+        all_new_holes.extend( holes )
+    return all_new_faces, all_new_holes
 
-all_new_faces = []
-all_new_faces.extend( get_new_faces( fd_x_dict ) )
+def update_holes( holes ):
+    for fd in holes:
+        for parent in fd.parents:
+            for key in parent.children:
+                if fd in parent.children[ key ]:
+                    for _fd in parent.next[ DIRECTION_HANDLER(key, 'o') ].children[ DIRECTION_HANDLER(parent.normal, 'o') ]:
+                        _fd.additional_colored_directions.add( DIRECTION_HANDLER(parent.normal, 'o') )
+
+x_faces, x_holes = get_new_faces( fd_x_dict )
 print('done for x')
-all_new_faces.extend( get_new_faces( fd_y_dict ) )
+y_faces, y_holes = get_new_faces( fd_y_dict )
 print('done for y')
-all_new_faces.extend( get_new_faces( fd_z_dict ) )
+z_faces, z_holes = get_new_faces( fd_z_dict )
 print('done for z')
+
+all_new_faces = x_faces + y_faces + z_faces
+
+update_holes( x_holes )
+print('x-holes done')
+update_holes( y_holes )
+print('y-holes done')
+update_holes( z_holes )
+print('z-holes done')
+
+print( len(x_holes), len(y_holes), len(z_holes) )
 
 for fd in all_new_faces:
     dummy_vmf = addVMF(dummy_vmf, fd.to_wall(textures))
-dummy_vmf.export('vmfs/test3_new_connected.vmf')
+dummy_vmf.export('vmfs/test_new_connected.vmf')
 
 print('done')
