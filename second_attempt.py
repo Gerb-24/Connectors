@@ -195,7 +195,7 @@ def GET_FACE_DATA( solid ):
     solid_data = [ solid_fd_dict[key] for key in solid_fd_dict ]
     return solid_data
 
-testVMF = load_vmf('vmfs/rg_connector.vmf')
+testVMF = load_vmf('vmfs/bezier_test.vmf')
 textures = Textures()
 solids = [solid for solid in testVMF.get_solids() if solid.has_texture('tools/toolsskip'.upper())]
 dummy_vmf = new_vmf()
@@ -292,6 +292,5 @@ print( len(x_holes), len(y_holes), len(z_holes) )
 
 for fd in all_new_faces:
     dummy_vmf = addVMF(dummy_vmf, fd.to_wall(textures))
-dummy_vmf.export('vmfs/test_new_connected.vmf')
-
+dummy_vmf.export('vmfs/bezier_test_connected.vmf')
 print('done')

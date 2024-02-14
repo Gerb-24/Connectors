@@ -44,6 +44,13 @@ class VertexManipulationBox:
             if self.xMin < vertex.x < self.xMax and self.yMin < vertex.y < self.yMax and self.zMin < vertex.z < self.zMax:
                 verticesInBox.append( vertex )
         return verticesInBox
+    
+    def getVerticesOfSolid( self, solid: Solid ):
+        verticesInSolid = []
+        for vertex in solid.get_all_vertices():
+            if self.xMin <= vertex.x <= self.xMax and self.yMin <= vertex.y <= self.yMax and self.zMin <= vertex.z <= self.zMax:
+                verticesInSolid.append( vertex )
+        return verticesInSolid
 
 # functions that handle vmfs
 

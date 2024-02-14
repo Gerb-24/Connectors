@@ -19,7 +19,7 @@ viewsettings
 }
 world
 {
-	"id" "38"
+	"id" "142"
 	"mapversion" "1"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
@@ -29,548 +29,2158 @@ world
 }
 entity
 {
-	"id" "39"
+	"id" "143"
 	"classname" "light"
-	"origin" "-512.0 -512.0 256.0"
+	"origin" "256.0 320.0 256.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "40"
+	"id" "144"
 	"classname" "light"
-	"origin" "-512.0 -512.0 512.0"
+	"origin" "256.0 576.0 256.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "41"
+	"id" "145"
 	"classname" "light"
-	"origin" "-512.0 -512.0 768.0"
+	"origin" "512.0 320.0 256.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "42"
+	"id" "146"
 	"classname" "light"
-	"origin" "-512.0 -256.0 256.0"
+	"origin" "512.0 576.0 256.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "43"
+	"id" "147"
 	"classname" "light"
-	"origin" "-512.0 -256.0 512.0"
+	"origin" "-64.0 1216.0 0.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "44"
+	"id" "148"
 	"classname" "light"
-	"origin" "-512.0 -256.0 768.0"
+	"origin" "-64.0 1472.0 0.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "45"
+	"id" "149"
 	"classname" "light"
-	"origin" "-512.0 0.0 256.0"
+	"origin" "1088.0 -256.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "46"
+	"id" "150"
 	"classname" "light"
-	"origin" "-512.0 0.0 512.0"
+	"origin" "1088.0 -256.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "47"
+	"id" "151"
 	"classname" "light"
-	"origin" "-512.0 0.0 768.0"
+	"origin" "1088.0 -256.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "48"
+	"id" "152"
 	"classname" "light"
-	"origin" "-512.0 256.0 256.0"
+	"origin" "1088.0 -256.0 1280.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "49"
+	"id" "153"
 	"classname" "light"
-	"origin" "-512.0 256.0 512.0"
+	"origin" "1088.0 0.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "50"
+	"id" "154"
 	"classname" "light"
-	"origin" "-512.0 256.0 768.0"
+	"origin" "1088.0 0.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "51"
+	"id" "155"
 	"classname" "light"
-	"origin" "-512.0 512.0 256.0"
+	"origin" "1088.0 0.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "52"
+	"id" "156"
 	"classname" "light"
-	"origin" "-512.0 512.0 512.0"
+	"origin" "1088.0 0.0 1280.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "53"
+	"id" "157"
 	"classname" "light"
-	"origin" "-512.0 512.0 768.0"
+	"origin" "1088.0 256.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "54"
+	"id" "158"
 	"classname" "light"
-	"origin" "-256.0 -512.0 256.0"
+	"origin" "1088.0 256.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "55"
+	"id" "159"
 	"classname" "light"
-	"origin" "-256.0 -512.0 512.0"
+	"origin" "1088.0 256.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "56"
+	"id" "160"
 	"classname" "light"
-	"origin" "-256.0 -512.0 768.0"
+	"origin" "1088.0 256.0 1280.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "57"
+	"id" "161"
 	"classname" "light"
-	"origin" "-256.0 -256.0 256.0"
+	"origin" "1344.0 -256.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "58"
+	"id" "162"
 	"classname" "light"
-	"origin" "-256.0 -256.0 512.0"
+	"origin" "1344.0 -256.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "59"
+	"id" "163"
 	"classname" "light"
-	"origin" "-256.0 -256.0 768.0"
+	"origin" "1344.0 -256.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "60"
+	"id" "164"
 	"classname" "light"
-	"origin" "-256.0 0.0 256.0"
+	"origin" "1344.0 -256.0 1280.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "61"
+	"id" "165"
 	"classname" "light"
-	"origin" "-256.0 0.0 512.0"
+	"origin" "1344.0 0.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "62"
+	"id" "166"
 	"classname" "light"
-	"origin" "-256.0 0.0 768.0"
+	"origin" "1344.0 0.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "63"
+	"id" "167"
 	"classname" "light"
-	"origin" "-256.0 256.0 256.0"
+	"origin" "1344.0 0.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "64"
+	"id" "168"
 	"classname" "light"
-	"origin" "-256.0 256.0 512.0"
+	"origin" "1344.0 0.0 1280.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "65"
+	"id" "169"
 	"classname" "light"
-	"origin" "-256.0 256.0 768.0"
+	"origin" "1344.0 256.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "66"
+	"id" "170"
 	"classname" "light"
-	"origin" "-256.0 512.0 256.0"
+	"origin" "1344.0 256.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "67"
+	"id" "171"
 	"classname" "light"
-	"origin" "-256.0 512.0 512.0"
+	"origin" "1344.0 256.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "68"
+	"id" "172"
 	"classname" "light"
-	"origin" "-256.0 512.0 768.0"
+	"origin" "1344.0 256.0 1280.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "69"
+	"id" "173"
 	"classname" "light"
-	"origin" "256.0 -1152.0 768.0"
+	"origin" "1600.0 -256.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "70"
+	"id" "174"
 	"classname" "light"
-	"origin" "256.0 -1152.0 1024.0"
+	"origin" "1600.0 -256.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "71"
+	"id" "175"
 	"classname" "light"
-	"origin" "256.0 -1152.0 1280.0"
+	"origin" "1600.0 -256.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "72"
+	"id" "176"
 	"classname" "light"
-	"origin" "256.0 -896.0 768.0"
+	"origin" "1600.0 -256.0 1280.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "73"
+	"id" "177"
 	"classname" "light"
-	"origin" "256.0 -896.0 1024.0"
+	"origin" "1600.0 0.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "74"
+	"id" "178"
 	"classname" "light"
-	"origin" "256.0 -896.0 1280.0"
+	"origin" "1600.0 0.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "75"
+	"id" "179"
 	"classname" "light"
-	"origin" "256.0 -640.0 768.0"
+	"origin" "1600.0 0.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "76"
+	"id" "180"
 	"classname" "light"
-	"origin" "256.0 -640.0 1024.0"
+	"origin" "1600.0 0.0 1280.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "77"
+	"id" "181"
 	"classname" "light"
-	"origin" "256.0 -640.0 1280.0"
+	"origin" "1600.0 256.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "78"
+	"id" "182"
 	"classname" "light"
-	"origin" "256.0 -384.0 768.0"
+	"origin" "1600.0 256.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "79"
+	"id" "183"
 	"classname" "light"
-	"origin" "256.0 -384.0 1024.0"
+	"origin" "1600.0 256.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "80"
+	"id" "184"
 	"classname" "light"
-	"origin" "256.0 -384.0 1280.0"
+	"origin" "1600.0 256.0 1280.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "81"
+	"id" "185"
 	"classname" "light"
-	"origin" "256.0 -128.0 768.0"
+	"origin" "704.0 1152.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "82"
+	"id" "186"
 	"classname" "light"
-	"origin" "256.0 -128.0 1024.0"
+	"origin" "704.0 1152.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "83"
+	"id" "187"
 	"classname" "light"
-	"origin" "256.0 -128.0 1280.0"
+	"origin" "704.0 1152.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "84"
+	"id" "188"
 	"classname" "light"
-	"origin" "512.0 -1152.0 768.0"
+	"origin" "704.0 1408.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "85"
+	"id" "189"
 	"classname" "light"
-	"origin" "512.0 -1152.0 1024.0"
+	"origin" "704.0 1408.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "86"
+	"id" "190"
 	"classname" "light"
-	"origin" "512.0 -1152.0 1280.0"
+	"origin" "704.0 1408.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "87"
+	"id" "191"
 	"classname" "light"
-	"origin" "512.0 -896.0 768.0"
+	"origin" "704.0 1664.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "88"
+	"id" "192"
 	"classname" "light"
-	"origin" "512.0 -896.0 1024.0"
+	"origin" "704.0 1664.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "89"
+	"id" "193"
 	"classname" "light"
-	"origin" "512.0 -896.0 1280.0"
+	"origin" "704.0 1664.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "90"
+	"id" "194"
 	"classname" "light"
-	"origin" "512.0 -640.0 768.0"
+	"origin" "704.0 1920.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "91"
+	"id" "195"
 	"classname" "light"
-	"origin" "512.0 -640.0 1024.0"
+	"origin" "704.0 1920.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "92"
+	"id" "196"
 	"classname" "light"
-	"origin" "512.0 -640.0 1280.0"
+	"origin" "704.0 1920.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "93"
+	"id" "197"
 	"classname" "light"
-	"origin" "512.0 -384.0 768.0"
+	"origin" "960.0 1152.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "94"
+	"id" "198"
 	"classname" "light"
-	"origin" "512.0 -384.0 1024.0"
+	"origin" "960.0 1152.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "95"
+	"id" "199"
 	"classname" "light"
-	"origin" "512.0 -384.0 1280.0"
+	"origin" "960.0 1152.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "96"
+	"id" "200"
 	"classname" "light"
-	"origin" "512.0 -128.0 768.0"
+	"origin" "960.0 1408.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "97"
+	"id" "201"
 	"classname" "light"
-	"origin" "512.0 -128.0 1024.0"
+	"origin" "960.0 1408.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "98"
+	"id" "202"
 	"classname" "light"
-	"origin" "512.0 -128.0 1280.0"
+	"origin" "960.0 1408.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "99"
+	"id" "203"
 	"classname" "light"
-	"origin" "1024.0 -576.0 512.0"
+	"origin" "960.0 1664.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "100"
+	"id" "204"
 	"classname" "light"
-	"origin" "1024.0 -576.0 768.0"
+	"origin" "960.0 1664.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "101"
+	"id" "205"
 	"classname" "light"
-	"origin" "1024.0 -576.0 1024.0"
+	"origin" "960.0 1664.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "102"
+	"id" "206"
 	"classname" "light"
-	"origin" "1280.0 -576.0 512.0"
+	"origin" "960.0 1920.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "103"
+	"id" "207"
 	"classname" "light"
-	"origin" "1280.0 -576.0 768.0"
+	"origin" "960.0 1920.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "104"
+	"id" "208"
 	"classname" "light"
-	"origin" "1280.0 -576.0 1024.0"
+	"origin" "960.0 1920.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "105"
+	"id" "209"
 	"classname" "light"
-	"origin" "1088.0 -1920.0 128.0"
+	"origin" "1216.0 1152.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "106"
+	"id" "210"
 	"classname" "light"
-	"origin" "1088.0 -1920.0 384.0"
+	"origin" "1216.0 1152.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "107"
+	"id" "211"
 	"classname" "light"
-	"origin" "1088.0 -1920.0 640.0"
+	"origin" "1216.0 1152.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "108"
+	"id" "212"
 	"classname" "light"
-	"origin" "1088.0 -1664.0 128.0"
+	"origin" "1216.0 1408.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "109"
+	"id" "213"
 	"classname" "light"
-	"origin" "1088.0 -1664.0 384.0"
+	"origin" "1216.0 1408.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "110"
+	"id" "214"
 	"classname" "light"
-	"origin" "1088.0 -1664.0 640.0"
+	"origin" "1216.0 1408.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "111"
+	"id" "215"
 	"classname" "light"
-	"origin" "1088.0 -1408.0 128.0"
+	"origin" "1216.0 1664.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "112"
+	"id" "216"
 	"classname" "light"
-	"origin" "1088.0 -1408.0 384.0"
+	"origin" "1216.0 1664.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "113"
+	"id" "217"
 	"classname" "light"
-	"origin" "1088.0 -1408.0 640.0"
+	"origin" "1216.0 1664.0 1024.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "114"
+	"id" "218"
 	"classname" "light"
-	"origin" "1088.0 -1152.0 128.0"
+	"origin" "1216.0 1920.0 512.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "115"
+	"id" "219"
 	"classname" "light"
-	"origin" "1088.0 -1152.0 384.0"
+	"origin" "1216.0 1920.0 768.0"
 	"_light" "255 255 255 400"
 }
 entity
 {
-	"id" "116"
+	"id" "220"
 	"classname" "light"
-	"origin" "1088.0 -1152.0 640.0"
+	"origin" "1216.0 1920.0 1024.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "221"
+	"classname" "light"
+	"origin" "-256.0 -192.0 1536.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "222"
+	"classname" "light"
+	"origin" "-256.0 -192.0 1792.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "223"
+	"classname" "light"
+	"origin" "-256.0 -192.0 2048.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "224"
+	"classname" "light"
+	"origin" "-256.0 -192.0 2304.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "225"
+	"classname" "light"
+	"origin" "0.0 -192.0 1536.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "226"
+	"classname" "light"
+	"origin" "0.0 -192.0 1792.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "227"
+	"classname" "light"
+	"origin" "0.0 -192.0 2048.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "228"
+	"classname" "light"
+	"origin" "0.0 -192.0 2304.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "229"
+	"classname" "light"
+	"origin" "256.0 -192.0 1536.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "230"
+	"classname" "light"
+	"origin" "256.0 -192.0 1792.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "231"
+	"classname" "light"
+	"origin" "256.0 -192.0 2048.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "232"
+	"classname" "light"
+	"origin" "256.0 -192.0 2304.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "233"
+	"classname" "light"
+	"origin" "512.0 -192.0 1536.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "234"
+	"classname" "light"
+	"origin" "512.0 -192.0 1792.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "235"
+	"classname" "light"
+	"origin" "512.0 -192.0 2048.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "236"
+	"classname" "light"
+	"origin" "512.0 -192.0 2304.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "237"
+	"classname" "light"
+	"origin" "-1152.0 1472.0 256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "238"
+	"classname" "light"
+	"origin" "-896.0 1472.0 256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "239"
+	"classname" "light"
+	"origin" "-640.0 1472.0 256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "240"
+	"classname" "light"
+	"origin" "-1472.0 320.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "241"
+	"classname" "light"
+	"origin" "-1472.0 320.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "242"
+	"classname" "light"
+	"origin" "-1472.0 576.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "243"
+	"classname" "light"
+	"origin" "-1472.0 576.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "244"
+	"classname" "light"
+	"origin" "-1472.0 832.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "245"
+	"classname" "light"
+	"origin" "-1472.0 832.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "246"
+	"classname" "light"
+	"origin" "-1216.0 320.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "247"
+	"classname" "light"
+	"origin" "-1216.0 320.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "248"
+	"classname" "light"
+	"origin" "-1216.0 576.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "249"
+	"classname" "light"
+	"origin" "-1216.0 576.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "250"
+	"classname" "light"
+	"origin" "-1216.0 832.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "251"
+	"classname" "light"
+	"origin" "-1216.0 832.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "252"
+	"classname" "light"
+	"origin" "-960.0 320.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "253"
+	"classname" "light"
+	"origin" "-960.0 320.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "254"
+	"classname" "light"
+	"origin" "-960.0 576.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "255"
+	"classname" "light"
+	"origin" "-960.0 576.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "256"
+	"classname" "light"
+	"origin" "-960.0 832.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "257"
+	"classname" "light"
+	"origin" "-960.0 832.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "258"
+	"classname" "light"
+	"origin" "2176.0 -384.0 1216.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "259"
+	"classname" "light"
+	"origin" "2176.0 -128.0 1216.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "260"
+	"classname" "light"
+	"origin" "2432.0 -384.0 1216.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "261"
+	"classname" "light"
+	"origin" "2432.0 -128.0 1216.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "262"
+	"classname" "light"
+	"origin" "2688.0 -384.0 1216.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "263"
+	"classname" "light"
+	"origin" "2688.0 -128.0 1216.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "264"
+	"classname" "light"
+	"origin" "2944.0 -384.0 1216.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "265"
+	"classname" "light"
+	"origin" "2944.0 -128.0 1216.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "266"
+	"classname" "light"
+	"origin" "1856.0 960.0 768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "267"
+	"classname" "light"
+	"origin" "1856.0 1216.0 768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "268"
+	"classname" "light"
+	"origin" "-1856.0 2048.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "269"
+	"classname" "light"
+	"origin" "-1856.0 2048.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "270"
+	"classname" "light"
+	"origin" "-1856.0 2048.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "271"
+	"classname" "light"
+	"origin" "-1856.0 2048.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "272"
+	"classname" "light"
+	"origin" "-1856.0 2304.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "273"
+	"classname" "light"
+	"origin" "-1856.0 2304.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "274"
+	"classname" "light"
+	"origin" "-1856.0 2304.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "275"
+	"classname" "light"
+	"origin" "-1856.0 2304.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "276"
+	"classname" "light"
+	"origin" "-1856.0 2560.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "277"
+	"classname" "light"
+	"origin" "-1856.0 2560.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "278"
+	"classname" "light"
+	"origin" "-1856.0 2560.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "279"
+	"classname" "light"
+	"origin" "-1856.0 2560.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "280"
+	"classname" "light"
+	"origin" "-1856.0 2816.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "281"
+	"classname" "light"
+	"origin" "-1856.0 2816.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "282"
+	"classname" "light"
+	"origin" "-1856.0 2816.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "283"
+	"classname" "light"
+	"origin" "-1856.0 2816.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "284"
+	"classname" "light"
+	"origin" "-1600.0 2048.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "285"
+	"classname" "light"
+	"origin" "-1600.0 2048.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "286"
+	"classname" "light"
+	"origin" "-1600.0 2048.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "287"
+	"classname" "light"
+	"origin" "-1600.0 2048.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "288"
+	"classname" "light"
+	"origin" "-1600.0 2304.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "289"
+	"classname" "light"
+	"origin" "-1600.0 2304.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "290"
+	"classname" "light"
+	"origin" "-1600.0 2304.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "291"
+	"classname" "light"
+	"origin" "-1600.0 2304.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "292"
+	"classname" "light"
+	"origin" "-1600.0 2560.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "293"
+	"classname" "light"
+	"origin" "-1600.0 2560.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "294"
+	"classname" "light"
+	"origin" "-1600.0 2560.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "295"
+	"classname" "light"
+	"origin" "-1600.0 2560.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "296"
+	"classname" "light"
+	"origin" "-1600.0 2816.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "297"
+	"classname" "light"
+	"origin" "-1600.0 2816.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "298"
+	"classname" "light"
+	"origin" "-1600.0 2816.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "299"
+	"classname" "light"
+	"origin" "-1600.0 2816.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "300"
+	"classname" "light"
+	"origin" "-1344.0 2048.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "301"
+	"classname" "light"
+	"origin" "-1344.0 2048.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "302"
+	"classname" "light"
+	"origin" "-1344.0 2048.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "303"
+	"classname" "light"
+	"origin" "-1344.0 2048.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "304"
+	"classname" "light"
+	"origin" "-1344.0 2304.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "305"
+	"classname" "light"
+	"origin" "-1344.0 2304.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "306"
+	"classname" "light"
+	"origin" "-1344.0 2304.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "307"
+	"classname" "light"
+	"origin" "-1344.0 2304.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "308"
+	"classname" "light"
+	"origin" "-1344.0 2560.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "309"
+	"classname" "light"
+	"origin" "-1344.0 2560.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "310"
+	"classname" "light"
+	"origin" "-1344.0 2560.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "311"
+	"classname" "light"
+	"origin" "-1344.0 2560.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "312"
+	"classname" "light"
+	"origin" "-1344.0 2816.0 -768.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "313"
+	"classname" "light"
+	"origin" "-1344.0 2816.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "314"
+	"classname" "light"
+	"origin" "-1344.0 2816.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "315"
+	"classname" "light"
+	"origin" "-1344.0 2816.0 0.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "316"
+	"classname" "light"
+	"origin" "64.0 448.0 2624.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "317"
+	"classname" "light"
+	"origin" "64.0 448.0 2880.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "318"
+	"classname" "light"
+	"origin" "64.0 448.0 3136.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "319"
+	"classname" "light"
+	"origin" "64.0 704.0 2624.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "320"
+	"classname" "light"
+	"origin" "64.0 704.0 2880.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "321"
+	"classname" "light"
+	"origin" "64.0 704.0 3136.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "322"
+	"classname" "light"
+	"origin" "320.0 448.0 2624.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "323"
+	"classname" "light"
+	"origin" "320.0 448.0 2880.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "324"
+	"classname" "light"
+	"origin" "320.0 448.0 3136.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "325"
+	"classname" "light"
+	"origin" "320.0 704.0 2624.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "326"
+	"classname" "light"
+	"origin" "320.0 704.0 2880.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "327"
+	"classname" "light"
+	"origin" "320.0 704.0 3136.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "328"
+	"classname" "light"
+	"origin" "576.0 448.0 2624.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "329"
+	"classname" "light"
+	"origin" "576.0 448.0 2880.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "330"
+	"classname" "light"
+	"origin" "576.0 448.0 3136.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "331"
+	"classname" "light"
+	"origin" "576.0 704.0 2624.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "332"
+	"classname" "light"
+	"origin" "576.0 704.0 2880.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "333"
+	"classname" "light"
+	"origin" "576.0 704.0 3136.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "334"
+	"classname" "light"
+	"origin" "768.0 1344.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "335"
+	"classname" "light"
+	"origin" "768.0 1344.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "336"
+	"classname" "light"
+	"origin" "768.0 1600.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "337"
+	"classname" "light"
+	"origin" "768.0 1600.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "338"
+	"classname" "light"
+	"origin" "768.0 1856.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "339"
+	"classname" "light"
+	"origin" "768.0 1856.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "340"
+	"classname" "light"
+	"origin" "1024.0 1344.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "341"
+	"classname" "light"
+	"origin" "1024.0 1344.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "342"
+	"classname" "light"
+	"origin" "1024.0 1600.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "343"
+	"classname" "light"
+	"origin" "1024.0 1600.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "344"
+	"classname" "light"
+	"origin" "1024.0 1856.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "345"
+	"classname" "light"
+	"origin" "1024.0 1856.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "346"
+	"classname" "light"
+	"origin" "1280.0 1344.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "347"
+	"classname" "light"
+	"origin" "1280.0 1344.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "348"
+	"classname" "light"
+	"origin" "1280.0 1600.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "349"
+	"classname" "light"
+	"origin" "1280.0 1600.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "350"
+	"classname" "light"
+	"origin" "1280.0 1856.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "351"
+	"classname" "light"
+	"origin" "1280.0 1856.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "352"
+	"classname" "light"
+	"origin" "1536.0 1344.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "353"
+	"classname" "light"
+	"origin" "1536.0 1344.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "354"
+	"classname" "light"
+	"origin" "1536.0 1600.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "355"
+	"classname" "light"
+	"origin" "1536.0 1600.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "356"
+	"classname" "light"
+	"origin" "1536.0 1856.0 3328.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "357"
+	"classname" "light"
+	"origin" "1536.0 1856.0 3584.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "358"
+	"classname" "light"
+	"origin" "1152.0 1024.0 1664.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "359"
+	"classname" "light"
+	"origin" "1152.0 1024.0 1920.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "360"
+	"classname" "light"
+	"origin" "1152.0 1024.0 2176.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "361"
+	"classname" "light"
+	"origin" "1152.0 1024.0 2432.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "362"
+	"classname" "light"
+	"origin" "1152.0 1280.0 1664.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "363"
+	"classname" "light"
+	"origin" "1152.0 1280.0 1920.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "364"
+	"classname" "light"
+	"origin" "1152.0 1280.0 2176.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "365"
+	"classname" "light"
+	"origin" "1152.0 1280.0 2432.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "366"
+	"classname" "light"
+	"origin" "320.0 2048.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "367"
+	"classname" "light"
+	"origin" "320.0 2048.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "368"
+	"classname" "light"
+	"origin" "576.0 2048.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "369"
+	"classname" "light"
+	"origin" "576.0 2048.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "370"
+	"classname" "light"
+	"origin" "832.0 2048.0 -512.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "371"
+	"classname" "light"
+	"origin" "832.0 2048.0 -256.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "372"
+	"classname" "light"
+	"origin" "1728.0 2496.0 2560.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "373"
+	"classname" "light"
+	"origin" "1728.0 2496.0 2816.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "374"
+	"classname" "light"
+	"origin" "1728.0 2496.0 3072.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "375"
+	"classname" "light"
+	"origin" "1728.0 2752.0 2560.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "376"
+	"classname" "light"
+	"origin" "1728.0 2752.0 2816.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "377"
+	"classname" "light"
+	"origin" "1728.0 2752.0 3072.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "378"
+	"classname" "light"
+	"origin" "2432.0 384.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "379"
+	"classname" "light"
+	"origin" "2432.0 384.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "380"
+	"classname" "light"
+	"origin" "2432.0 384.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "381"
+	"classname" "light"
+	"origin" "2432.0 640.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "382"
+	"classname" "light"
+	"origin" "2432.0 640.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "383"
+	"classname" "light"
+	"origin" "2432.0 640.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "384"
+	"classname" "light"
+	"origin" "2432.0 896.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "385"
+	"classname" "light"
+	"origin" "2432.0 896.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "386"
+	"classname" "light"
+	"origin" "2432.0 896.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "387"
+	"classname" "light"
+	"origin" "2688.0 384.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "388"
+	"classname" "light"
+	"origin" "2688.0 384.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "389"
+	"classname" "light"
+	"origin" "2688.0 384.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "390"
+	"classname" "light"
+	"origin" "2688.0 640.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "391"
+	"classname" "light"
+	"origin" "2688.0 640.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "392"
+	"classname" "light"
+	"origin" "2688.0 640.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "393"
+	"classname" "light"
+	"origin" "2688.0 896.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "394"
+	"classname" "light"
+	"origin" "2688.0 896.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "395"
+	"classname" "light"
+	"origin" "2688.0 896.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "396"
+	"classname" "light"
+	"origin" "2944.0 384.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "397"
+	"classname" "light"
+	"origin" "2944.0 384.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "398"
+	"classname" "light"
+	"origin" "2944.0 384.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "399"
+	"classname" "light"
+	"origin" "2944.0 640.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "400"
+	"classname" "light"
+	"origin" "2944.0 640.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "401"
+	"classname" "light"
+	"origin" "2944.0 640.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "402"
+	"classname" "light"
+	"origin" "2944.0 896.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "403"
+	"classname" "light"
+	"origin" "2944.0 896.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "404"
+	"classname" "light"
+	"origin" "2944.0 896.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "405"
+	"classname" "light"
+	"origin" "3200.0 384.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "406"
+	"classname" "light"
+	"origin" "3200.0 384.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "407"
+	"classname" "light"
+	"origin" "3200.0 384.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "408"
+	"classname" "light"
+	"origin" "3200.0 640.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "409"
+	"classname" "light"
+	"origin" "3200.0 640.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "410"
+	"classname" "light"
+	"origin" "3200.0 640.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "411"
+	"classname" "light"
+	"origin" "3200.0 896.0 1088.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "412"
+	"classname" "light"
+	"origin" "3200.0 896.0 1344.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "413"
+	"classname" "light"
+	"origin" "3200.0 896.0 1600.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "414"
+	"classname" "light"
+	"origin" "3072.0 -1664.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "415"
+	"classname" "light"
+	"origin" "3072.0 -1664.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "416"
+	"classname" "light"
+	"origin" "3072.0 -1408.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "417"
+	"classname" "light"
+	"origin" "3072.0 -1408.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "418"
+	"classname" "light"
+	"origin" "3072.0 -1152.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "419"
+	"classname" "light"
+	"origin" "3072.0 -1152.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "420"
+	"classname" "light"
+	"origin" "3072.0 -896.0 576.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "421"
+	"classname" "light"
+	"origin" "3072.0 -896.0 832.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "422"
+	"classname" "light"
+	"origin" "256.0 -768.0 2624.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "423"
+	"classname" "light"
+	"origin" "256.0 -768.0 2880.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "424"
+	"classname" "light"
+	"origin" "256.0 -768.0 3136.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "425"
+	"classname" "light"
+	"origin" "-2368.0 1024.0 -64.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "426"
+	"classname" "light"
+	"origin" "-2368.0 1024.0 192.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "427"
+	"classname" "light"
+	"origin" "-2368.0 1280.0 -64.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "428"
+	"classname" "light"
+	"origin" "-2368.0 1280.0 192.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "429"
+	"classname" "light"
+	"origin" "-2112.0 1024.0 -64.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "430"
+	"classname" "light"
+	"origin" "-2112.0 1024.0 192.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "431"
+	"classname" "light"
+	"origin" "-2112.0 1280.0 -64.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "432"
+	"classname" "light"
+	"origin" "-2112.0 1280.0 192.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "433"
+	"classname" "light"
+	"origin" "576.0 2432.0 3776.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "434"
+	"classname" "light"
+	"origin" "576.0 2432.0 4032.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "435"
+	"classname" "light"
+	"origin" "576.0 2432.0 4288.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "436"
+	"classname" "light"
+	"origin" "576.0 2688.0 3776.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "437"
+	"classname" "light"
+	"origin" "576.0 2688.0 4032.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "438"
+	"classname" "light"
+	"origin" "576.0 2688.0 4288.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "439"
+	"classname" "light"
+	"origin" "576.0 2944.0 3776.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "440"
+	"classname" "light"
+	"origin" "576.0 2944.0 4032.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "441"
+	"classname" "light"
+	"origin" "576.0 2944.0 4288.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "442"
+	"classname" "light"
+	"origin" "832.0 2432.0 3776.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "443"
+	"classname" "light"
+	"origin" "832.0 2432.0 4032.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "444"
+	"classname" "light"
+	"origin" "832.0 2432.0 4288.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "445"
+	"classname" "light"
+	"origin" "832.0 2688.0 3776.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "446"
+	"classname" "light"
+	"origin" "832.0 2688.0 4032.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "447"
+	"classname" "light"
+	"origin" "832.0 2688.0 4288.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "448"
+	"classname" "light"
+	"origin" "832.0 2944.0 3776.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "449"
+	"classname" "light"
+	"origin" "832.0 2944.0 4032.0"
+	"_light" "255 255 255 400"
+}
+entity
+{
+	"id" "450"
+	"classname" "light"
+	"origin" "832.0 2944.0 4288.0"
 	"_light" "255 255 255 400"
 }
 cameras
